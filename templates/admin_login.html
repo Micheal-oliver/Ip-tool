@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body { font-family: sans-serif; background-color: #0f172a; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background-color: #1e293b; padding: 2.5rem; border-radius: 12px; border: 1px solid #334155; max-width: 360px; width: 100%; }
+        h1 { color: #38bdf8; margin-top: 0; font-size: 1.3rem; }
+        label { display: block; font-size: 0.85rem; color: #94a3b8; margin: 14px 0 6px; }
+        input { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #334155; background: #020617; color: #f8fafc; font-size: 0.95rem; box-sizing: border-box; }
+        button { width: 100%; margin-top: 20px; padding: 11px; border: none; border-radius: 8px; background: #38bdf8; color: #04121f; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
+        button:hover { background: #7dd3fc; }
+        .flash { background: rgba(248,113,113,0.12); border: 1px solid #f87171; color: #f87171; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; margin-top: 14px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Admin Login</h1>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for m in messages %}<div class="flash">{{ m }}</div>{% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" autocomplete="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+</body>
+</html>
